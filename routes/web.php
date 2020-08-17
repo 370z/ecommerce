@@ -52,3 +52,7 @@ Route::get('/shop', function () {
 Route::get('/wishlist', function () {
     return view('frontend.wishlist');
 });
+
+Route::get('/blogid', function () {
+    return view('frontend.blogid');
+});
