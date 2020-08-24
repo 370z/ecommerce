@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+Route::resource('products', 'ProductController');
+
+Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add')->middleware('auth');
+Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -56,3 +61,7 @@ Route::get('/wishlist', function () {
 Route::get('/blogid', function () {
     return view('frontend.blogid');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
